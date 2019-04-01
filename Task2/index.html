@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"> </script>
+</head>
+<body>
+  <div id="Pane">
+    <div id="Overlay">
+    </div>
+    <div class="Form">
+      <form class="EditForm">
+        <div class="Date">
+          <div>
+            <span>Номер участка сети: </span>
+            <input id="PONNumber" disabled/>
+          </div>
+          <span>Дата прокладки:</span>
+          <input type="month" name="Calendar" class="Calendar" max="2019-04" min="1990-01" value="2019-03">
+        </div>
+        <div class="Isolation">
+          <span>Тип изоляции:</span>
+          <select id="SelectIsolation">
+            <option value="PPU">Пенополиуретан</option>
+            <option value="PPM">Пенополимер-минерал</option>
+            <option value="APB">Армопенобетон</option>
+          </select>
+        </div>
+        <div class="Laying">
+          <span>Вид прокладки:</span>
+          <select id="SelectKindOfLaying">
+            <option value="AG">Надземная</option>
+            <option value="UG">Подземная</option>
+            <option value="OG">По подвалу</option>
+          </select> </br>
+          <button id="ButtonSubmit" type="button">Сохранить</button>
+          <button id="ButtonCancel" class="ButtonCancel" type="button">Отменить</button>
+        </div>
+      </form>
+      <div id="ObjectInformation">
+        <div style="text-decoration: underline">Информация об объекте потребления</div>
+        <span>Наименование: <input id="OjectName" value="Объект на улице Попова" disabled/></span>
+      </div>
+      <div id="ClientInformation">
+        <div style="text-decoration: underline">Информация о потребителе</div>
+        <span>ФИО: <input id="ClientName" value="Иванов А. А." disabled/></span>
+      </div>
+      <div id="BuildingInformation">
+          <div style="text-decoration: underline">Информация о здании</div>
+          <span>Адрес: <input id="ClientName" value="ул. Попова, д.38, кв.50" disabled/></span>
+        </div>
+    </div></br>
+    <div class="AddButtonBox">
+      <input type="button" id="AddButton" name="ButtonAddPartOfNetwork" value="+" />
+    </div>
+    <div id="Networks">
+      <div id="PON_1" class="PartOfNetwork OuterNetwork OnGround">
+        <div class="ButtonPlace">
+          <button class="Edit"></button>
+        </div>
+        <div class="ContentPlace">
+          <div class="number">
+            <span class="SpanNumber">Номер: </span>
+            <input type="text" class="NN" value="1" disabled/>
+          </div>
+          <div class="NetworkIsolation">
+            <span class="SpanIsolation">Тип изоляции: </span>
+            <input type="text" class="NI" value="Пенополиуретан" disabled/>
+          </div>
+        </div>
+      </div>
+      <div id="PON_2" class="PartOfNetwork OuterNetwork OnGround">
+        <div class="ButtonPlace">
+          <button id="ided" class="Edit"></button>
+        </div>
+        <div class="ContentPlace">
+          <div class="number">
+            <span class="SpanNumber">Номер: </span>
+            <input type="text" class="NN" value="2" disabled/>
+          </div>
+          <div class="NetworkIsolation">
+            <span class="SpanIsolation">Тип изоляции: </span>
+            <input type="text" class="NI" value="Пенополиуретан" disabled/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ObjectZone">
+      <div id="ThermoObject">
+          Объект теплопотребления
+      </div>
+    </div>
+  </div>
+</body>
+</html>
