@@ -11,12 +11,6 @@ namespace CreateCode.Tests
     [TestClass()]
     public class SecondCreateCodeTests
     {
-        //[TestMethod()]
-        //public void GenerateCodeTest()
-        //{
-        //    Assert.Fail();
-        //}
-
         [TestMethod()]
         public void SecondAlgCorrectAll()
         {

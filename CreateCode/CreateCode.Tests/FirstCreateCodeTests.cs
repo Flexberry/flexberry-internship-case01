@@ -11,11 +11,6 @@ namespace CreateCode.Tests
     [TestClass()]
     public class FirstCreateCodeTests
     {
-        //[TestMethod()]
-        //public void GenerateCodeTest()
-        //{
-        //    Assert.Fail();
-        //}
         [TestMethod()]
         public void FirstAlgCorrect()
         {

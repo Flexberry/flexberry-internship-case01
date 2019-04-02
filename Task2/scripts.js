@@ -17,10 +17,10 @@
     $(document).ready(function(){
         $('#Overlay').hide(); //Изначальное затемнение и форма скрыты
         $('.Form').hide();
-
         $(document).on('click', '.Edit', function(event){
           $('#Overlay').show() //Показываем затемнение и форму
           $('.Form').show();
+		  $('.Calendar').val("2019-03");
           var t = $('#'+event.target.parentNode.parentNode.id); // в t будет лежать PartOfNetwork по которому был клик
           t.addClass("Highlighted") //Подсвечиваем элемент, которые редактируем
           if (t.hasClass("OnGround")) {$('#SelectKindOfLaying option:selected').text("Надземная")} //Указываем в форме вид прокладки, соответствующий участку сети 

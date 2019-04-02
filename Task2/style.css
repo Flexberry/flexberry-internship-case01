@@ -1,9 +1,8 @@
-<style type="text/css">
-    #Pane { /*Стиль рамки (нужна для того, чтобы нельзя было перетащить элемент за экран)*/
+/*    #Pane { /*Стиль рамки (нужна для того, чтобы нельзя было перетащить элемент за экран)
       position: absolute;
       top: 0px;
       left: 0px;
-    }
+    }*/
     #ThermoObject {
       border-radius: 10px;
       font-size: x-large;
@@ -12,7 +11,7 @@
       height: 150px;
       text-align: center;
       line-height: 150px;
-      margin-top: 200px;
+      margin-top: 0px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -131,4 +130,3 @@
     em {
       text-decoration: underline;
     }
-/* </style> */
