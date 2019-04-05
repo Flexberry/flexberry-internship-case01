@@ -1,31 +1,31 @@
 USE ThermoObjects
 
-/* 1. Вывести список сетевых районов, 
-отсортированный по количеству объектов теплопотребления в них.*/
-select zones.Name as 'Название района', COUNT(*) as 'Количество объектов ТП' from zones, buildings, thermo_objects 
+/* 1. Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… СЂР°Р№РѕРЅРѕРІ, 
+РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РѕР±СЉРµРєС‚РѕРІ С‚РµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ РІ РЅРёС….*/
+select zones.Name as 'РќР°Р·РІР°РЅРёРµ СЂР°Р№РѕРЅР°', COUNT(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЉРµРєС‚РѕРІ РўРџ' from zones, buildings, thermo_objects 
 WHERE buildings.Zone_id = zones.id AND thermo_objects.Building_id = buildings.id 
 GROUP BY zones.Name ORDER BY COUNT(*) DESC;
 
-/* 2. Вывести топ N объектов теплопотребления с наибольшим количеством участков сети. */
-select top 5 thermo_objects.Name as 'Название объекта ТП', COUNT(*) as 'Количество участков сети' from thermo_objects, networks
+/* 2. Р’С‹РІРµСЃС‚Рё С‚РѕРї N РѕР±СЉРµРєС‚РѕРІ С‚РµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ СЃ РЅР°РёР±РѕР»СЊС€РёРј РєРѕР»РёС‡РµСЃС‚РІРѕРј СѓС‡Р°СЃС‚РєРѕРІ СЃРµС‚Рё. */
+select top 5 thermo_objects.Name as 'РќР°Р·РІР°РЅРёРµ РѕР±СЉРµРєС‚Р° РўРџ', COUNT(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ СѓС‡Р°СЃС‚РєРѕРІ СЃРµС‚Рё' from thermo_objects, networks
 WHERE networks.Thermo_object_id = thermo_objects.id
 GROUP BY thermo_objects.Name ORDER BY  COUNT(*) DESC;
 
-/* 3. Вывести потребителей (контрагентов), у объектов которых больше всего внутренних участков сети. */
-select clients.Name as 'Потребитель', COUNT(*) as 'Количество внутренних участков сети' from clients, networks, thermo_objects, types_of_installation
+/* 3. Р’С‹РІРµСЃС‚Рё РїРѕС‚СЂРµР±РёС‚РµР»РµР№ (РєРѕРЅС‚СЂР°РіРµРЅС‚РѕРІ), Сѓ РѕР±СЉРµРєС‚РѕРІ РєРѕС‚РѕСЂС‹С… Р±РѕР»СЊС€Рµ РІСЃРµРіРѕ РІРЅСѓС‚СЂРµРЅРЅРёС… СѓС‡Р°СЃС‚РєРѕРІ СЃРµС‚Рё. */
+select clients.Name as 'РџРѕС‚СЂРµР±РёС‚РµР»СЊ', COUNT(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ РІРЅСѓС‚СЂРµРЅРЅРёС… СѓС‡Р°СЃС‚РєРѕРІ СЃРµС‚Рё' from clients, networks, thermo_objects, types_of_installation
 WHERE networks.Thermo_object_id = thermo_objects.id AND thermo_objects.Client_id = clients.id AND networks.TypeOfInstallation_id = types_of_installation.id AND
-types_of_installation.Name = 'Внутренний' GROUP BY clients.Name ORDER BY COUNT(*) DESC;
+types_of_installation.Name = 'Р’РЅСѓС‚СЂРµРЅРЅРёР№' GROUP BY clients.Name ORDER BY COUNT(*) DESC;
 
-/* 4. Вывести рейтинг типов изоляций участков сети по сетевым районам */
-select zones.Name as 'Сетевой район', types_of_isolation.Name as 'Тип изоляции', COUNT(*) as 'Количество' from zones, networks, thermo_objects, buildings, types_of_isolation
+/* 4. Р’С‹РІРµСЃС‚Рё СЂРµР№С‚РёРЅРі С‚РёРїРѕРІ РёР·РѕР»СЏС†РёР№ СѓС‡Р°СЃС‚РєРѕРІ СЃРµС‚Рё РїРѕ СЃРµС‚РµРІС‹Рј СЂР°Р№РѕРЅР°Рј */
+select zones.Name as 'РЎРµС‚РµРІРѕР№ СЂР°Р№РѕРЅ', types_of_isolation.Name as 'РўРёРї РёР·РѕР»СЏС†РёРё', COUNT(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ' from zones, networks, thermo_objects, buildings, types_of_isolation
 WHERE networks.Thermo_object_id = thermo_objects.id AND thermo_objects.Building_id = buildings.id AND
 networks.TypeOfIsolation_id = types_of_isolation.id AND buildings.Zone_id=zones.id GROUP BY zones.Name, types_of_isolation.Name
 
-/* 5. Вывести информацию о 5 зданиях, в которых больше всего объектов теплопотребления с наружными участками сети. */
-select buildings.Adress as 'Адрес', zones.Name as 'Сетевой район', COUNT(*) as 'Количество наружных участков сети' 
+/* 5. Р’С‹РІРµСЃС‚Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ 5 Р·РґР°РЅРёСЏС…, РІ РєРѕС‚РѕСЂС‹С… Р±РѕР»СЊС€Рµ РІСЃРµРіРѕ РѕР±СЉРµРєС‚РѕРІ С‚РµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ СЃ РЅР°СЂСѓР¶РЅС‹РјРё СѓС‡Р°СЃС‚РєР°РјРё СЃРµС‚Рё. */
+select buildings.Adress as 'РђРґСЂРµСЃ', zones.Name as 'РЎРµС‚РµРІРѕР№ СЂР°Р№РѕРЅ', COUNT(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ РЅР°СЂСѓР¶РЅС‹С… СѓС‡Р°СЃС‚РєРѕРІ СЃРµС‚Рё' 
 from buildings, networks, thermo_objects, types_of_installation, zones
 WHERE buildings.Zone_id = zones.id AND Thermo_object_id = thermo_objects.id AND thermo_objects.Building_id = buildings.id 
-AND networks.TypeOfInstallation_id=types_of_installation.id AND types_of_installation.Name='Внутренний' GROUP BY buildings.Adress, zones.Name
+AND networks.TypeOfInstallation_id=types_of_installation.id AND types_of_installation.Name='Р’РЅСѓС‚СЂРµРЅРЅРёР№' GROUP BY buildings.Adress, zones.Name
 ORDER BY COUNT(*) DESC
 
 /*
