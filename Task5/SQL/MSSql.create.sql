@@ -2,75 +2,75 @@
 
 
 
-CREATE TABLE [СетевойРайон] (
+CREATE TABLE [РЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Название] VARCHAR(255)  NULL,
+	 [РќР°Р·РІР°РЅРёРµ] VARCHAR(255)  NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [УчастокСети] (
+CREATE TABLE [РЈС‡Р°СЃС‚РѕРєРЎРµС‚Рё] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [ТипИзоляции] VARCHAR(255)  NULL,
+	 [РўРёРїРР·РѕР»СЏС†РёРё] VARCHAR(255)  NULL,
 
-	 [ТипПрокладки] VARCHAR(255)  NULL,
+	 [РўРёРїРџСЂРѕРєР»Р°РґРєРё] VARCHAR(255)  NULL,
 
-	 [ГодПрокладки] INT  NULL,
+	 [Р“РѕРґРџСЂРѕРєР»Р°РґРєРё] INT  NULL,
 
-	 [ОбъектТеплопотребления] UNIQUEIDENTIFIER  NOT NULL,
+	 [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ] UNIQUEIDENTIFIER  NOT NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [ОбъектТеплопотребления] (
+CREATE TABLE [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Название] VARCHAR(255)  NULL,
+	 [РќР°Р·РІР°РЅРёРµ] VARCHAR(255)  NULL,
 
-	 [ДатаУстановки] VARCHAR(255)  NULL,
+	 [Р”Р°С‚Р°РЈСЃС‚Р°РЅРѕРІРєРё] VARCHAR(255)  NULL,
 
-	 [ТипОТ] VARCHAR(255)  NULL,
+	 [РўРёРїРћРў] VARCHAR(255)  NULL,
 
-	 [ТепловаяНагрузка] INT  NULL,
+	 [РўРµРїР»РѕРІР°СЏРќР°РіСЂСѓР·РєР°] INT  NULL,
 
-	 [Здание] UNIQUEIDENTIFIER  NOT NULL,
+	 [Р—РґР°РЅРёРµ] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Потребитель] UNIQUEIDENTIFIER  NOT NULL,
+	 [РџРѕС‚СЂРµР±РёС‚РµР»СЊ] UNIQUEIDENTIFIER  NOT NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [Здание] (
+CREATE TABLE [Р—РґР°РЅРёРµ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [Адрес] VARCHAR(255)  NULL,
+	 [РђРґСЂРµСЃ] VARCHAR(255)  NULL,
 
-	 [ТипПостройки] VARCHAR(255)  NULL,
+	 [РўРёРїРџРѕСЃС‚СЂРѕР№РєРё] VARCHAR(255)  NULL,
 
-	 [Площадь] VARCHAR(255)  NULL,
+	 [РџР»РѕС‰Р°РґСЊ] VARCHAR(255)  NULL,
 
-	 [СетевойРайон] UNIQUEIDENTIFIER  NOT NULL,
+	 [РЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ] UNIQUEIDENTIFIER  NOT NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
 
-CREATE TABLE [Потребитель] (
+CREATE TABLE [РџРѕС‚СЂРµР±РёС‚РµР»СЊ] (
 
 	 [primaryKey] UNIQUEIDENTIFIER  NOT NULL,
 
-	 [НазваниеКомпании] VARCHAR(255)  NULL,
+	 [РќР°Р·РІР°РЅРёРµРљРѕРјРїР°РЅРёРё] VARCHAR(255)  NULL,
 
-	 [ФИОРуководителя] VARCHAR(255)  NULL,
+	 [Р¤РРћР СѓРєРѕРІРѕРґРёС‚РµР»СЏ] VARCHAR(255)  NULL,
 
-	 [ЮридическийАдрес] VARCHAR(255)  NULL,
+	 [Р®СЂРёРґРёС‡РµСЃРєРёР№РђРґСЂРµСЃ] VARCHAR(255)  NULL,
 
-	 [ЛицевойСчёт] INT  NULL,
+	 [Р›РёС†РµРІРѕР№РЎС‡С‘С‚] INT  NULL,
 
 	 PRIMARY KEY ([primaryKey]))
 
@@ -256,17 +256,17 @@ CREATE TABLE [ApplicationLog] (
 
 
 
- ALTER TABLE [УчастокСети] ADD CONSTRAINT [УчастокСети_FОбъектТеплопотребления_0] FOREIGN KEY ([ОбъектТеплопотребления]) REFERENCES [ОбъектТеплопотребления]
-CREATE INDEX УчастокСети_IОбъектТеплопотребления on [УчастокСети] ([ОбъектТеплопотребления])
+ ALTER TABLE [РЈС‡Р°СЃС‚РѕРєРЎРµС‚Рё] ADD CONSTRAINT [РЈС‡Р°СЃС‚РѕРєРЎРµС‚Рё_FРћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ_0] FOREIGN KEY ([РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ]) REFERENCES [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ]
+CREATE INDEX РЈС‡Р°СЃС‚РѕРєРЎРµС‚Рё_IРћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ on [РЈС‡Р°СЃС‚РѕРєРЎРµС‚Рё] ([РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ])
 
- ALTER TABLE [ОбъектТеплопотребления] ADD CONSTRAINT [ОбъектТеплопотребления_FЗдание_0] FOREIGN KEY ([Здание]) REFERENCES [Здание]
-CREATE INDEX ОбъектТеплопотребления_IЗдание on [ОбъектТеплопотребления] ([Здание])
+ ALTER TABLE [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ] ADD CONSTRAINT [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ_FР—РґР°РЅРёРµ_0] FOREIGN KEY ([Р—РґР°РЅРёРµ]) REFERENCES [Р—РґР°РЅРёРµ]
+CREATE INDEX РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ_IР—РґР°РЅРёРµ on [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ] ([Р—РґР°РЅРёРµ])
 
- ALTER TABLE [ОбъектТеплопотребления] ADD CONSTRAINT [ОбъектТеплопотребления_FПотребитель_0] FOREIGN KEY ([Потребитель]) REFERENCES [Потребитель]
-CREATE INDEX ОбъектТеплопотребления_IПотребитель on [ОбъектТеплопотребления] ([Потребитель])
+ ALTER TABLE [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ] ADD CONSTRAINT [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ_FРџРѕС‚СЂРµР±РёС‚РµР»СЊ_0] FOREIGN KEY ([РџРѕС‚СЂРµР±РёС‚РµР»СЊ]) REFERENCES [РџРѕС‚СЂРµР±РёС‚РµР»СЊ]
+CREATE INDEX РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ_IРџРѕС‚СЂРµР±РёС‚РµР»СЊ on [РћР±СЉРµРєС‚РўРµРїР»РѕРїРѕС‚СЂРµР±Р»РµРЅРёСЏ] ([РџРѕС‚СЂРµР±РёС‚РµР»СЊ])
 
- ALTER TABLE [Здание] ADD CONSTRAINT [Здание_FСетевойРайон_0] FOREIGN KEY ([СетевойРайон]) REFERENCES [СетевойРайон]
-CREATE INDEX Здание_IСетевойРайон on [Здание] ([СетевойРайон])
+ ALTER TABLE [Р—РґР°РЅРёРµ] ADD CONSTRAINT [Р—РґР°РЅРёРµ_FРЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ_0] FOREIGN KEY ([РЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ]) REFERENCES [РЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ]
+CREATE INDEX Р—РґР°РЅРёРµ_IРЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ on [Р—РґР°РЅРёРµ] ([РЎРµС‚РµРІРѕР№Р Р°Р№РѕРЅ])
 
  ALTER TABLE [STORMWEBSEARCH] ADD CONSTRAINT [STORMWEBSEARCH_FSTORMFILTERSETTING_0] FOREIGN KEY ([FilterSetting_m0]) REFERENCES [STORMFILTERSETTING]
 
