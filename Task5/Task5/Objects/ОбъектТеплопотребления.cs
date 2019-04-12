@@ -39,9 +39,9 @@ namespace IIS.Task5
         
         private int fТепловаяНагрузка;
         
-        private IIS.Task5.Здание fЗдание;
-        
         private IIS.Task5.Потребитель fПотребитель;
+        
+        private IIS.Task5.Здание fЗдание;
         
         private IIS.Task5.DetailArrayOfУчастокСети fУчастокСети;
         
@@ -180,40 +180,6 @@ namespace IIS.Task5
         /// <summary>
         /// ОбъектТеплопотребления.
         /// </summary>
-        // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
-
-        // *** End programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Здание"})]
-        [NotNull()]
-        public virtual IIS.Task5.Здание Здание
-        {
-            get
-            {
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
-                IIS.Task5.Здание result = this.fЗдание;
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
-                this.fЗдание = value;
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
-            }
-        }
-        
-        /// <summary>
-        /// ОбъектТеплопотребления.
-        /// </summary>
         // *** Start programmer edit section *** (ОбъектТеплопотребления.Потребитель CustomAttributes)
 
         // *** End programmer edit section *** (ОбъектТеплопотребления.Потребитель CustomAttributes)
@@ -242,6 +208,40 @@ namespace IIS.Task5
                 // *** Start programmer edit section *** (ОбъектТеплопотребления.Потребитель Set end)
 
                 // *** End programmer edit section *** (ОбъектТеплопотребления.Потребитель Set end)
+            }
+        }
+        
+        /// <summary>
+        /// ОбъектТеплопотребления.
+        /// </summary>
+        // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
+
+        // *** End programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
+        [PropertyStorage(new string[] {
+                "Здание"})]
+        [NotNull()]
+        public virtual IIS.Task5.Здание Здание
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
+                IIS.Task5.Здание result = this.fЗдание;
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
+                this.fЗдание = value;
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
             }
         }
         

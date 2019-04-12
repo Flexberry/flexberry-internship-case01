@@ -107,7 +107,7 @@ namespace IIS.Task5
                 // *** End programmer edit section *** (Здание.ТипПостройки Set end)
             }
         }
-        
+   
         /// <summary>
         /// Площадь.
         /// </summary>
