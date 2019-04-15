@@ -47,9 +47,9 @@ namespace IIS.Task6
         
         private IIS.Task6.Потребитель fПотребитель;
         
-        private IIS.Task6.Здание fЗдание;
-        
         private IIS.Task6.DetailArrayOfУчастокСети fУчастокСети;
+        
+        private IIS.Task6.Здание fЗдание;
         
         // *** Start programmer edit section *** (ОбъектТеплопотребления CustomMembers)
 
@@ -282,40 +282,6 @@ namespace IIS.Task6
         /// <summary>
         /// ОбъектТеплопотребления.
         /// </summary>
-        // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
-
-        // *** End programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
-        [PropertyStorage(new string[] {
-                "Здание"})]
-        [NotNull()]
-        public virtual IIS.Task6.Здание Здание
-        {
-            get
-            {
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
-                IIS.Task6.Здание result = this.fЗдание;
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
-                return result;
-            }
-            set
-            {
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
-                this.fЗдание = value;
-                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
-
-                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
-            }
-        }
-        
-        /// <summary>
-        /// ОбъектТеплопотребления.
-        /// </summary>
         // *** Start programmer edit section *** (ОбъектТеплопотребления.УчастокСети CustomAttributes)
 
         // *** End programmer edit section *** (ОбъектТеплопотребления.УчастокСети CustomAttributes)
@@ -346,6 +312,83 @@ namespace IIS.Task6
 
                 // *** End programmer edit section *** (ОбъектТеплопотребления.УчастокСети Set end)
             }
+        }
+        
+        /// <summary>
+        /// мастеровая ссылка на шапку IIS.Task6.Здание.
+        /// </summary>
+        // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
+
+        // *** End programmer edit section *** (ОбъектТеплопотребления.Здание CustomAttributes)
+        [Agregator()]
+        [NotNull()]
+        [PropertyStorage(new string[] {
+                "Здание"})]
+        public virtual IIS.Task6.Здание Здание
+        {
+            get
+            {
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get start)
+                IIS.Task6.Здание result = this.fЗдание;
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set start)
+                this.fЗдание = value;
+                // *** Start programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
+
+                // *** End programmer edit section *** (ОбъектТеплопотребления.Здание Set end)
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Detail array of ОбъектТеплопотребления.
+    /// </summary>
+    // *** Start programmer edit section *** (DetailArrayDetailArrayOfОбъектТеплопотребления CustomAttributes)
+
+    // *** End programmer edit section *** (DetailArrayDetailArrayOfОбъектТеплопотребления CustomAttributes)
+    public class DetailArrayOfОбъектТеплопотребления : ICSSoft.STORMNET.DetailArray
+    {
+        
+        // *** Start programmer edit section *** (IIS.Task6.DetailArrayOfОбъектТеплопотребления members)
+
+        // *** End programmer edit section *** (IIS.Task6.DetailArrayOfОбъектТеплопотребления members)
+
+        
+        /// <summary>
+        /// Construct detail array.
+        /// </summary>
+        /// <summary>
+        /// Returns object with type ОбъектТеплопотребления by index.
+        /// </summary>
+        /// <summary>
+        /// Adds object with type ОбъектТеплопотребления.
+        /// </summary>
+        public DetailArrayOfОбъектТеплопотребления(IIS.Task6.Здание fЗдание) : 
+                base(typeof(ОбъектТеплопотребления), ((ICSSoft.STORMNET.DataObject)(fЗдание)))
+        {
+        }
+        
+        public IIS.Task6.ОбъектТеплопотребления this[int index]
+        {
+            get
+            {
+                return ((IIS.Task6.ОбъектТеплопотребления)(this.ItemByIndex(index)));
+            }
+        }
+        
+        public virtual void Add(IIS.Task6.ОбъектТеплопотребления dataobject)
+        {
+            this.AddObject(((ICSSoft.STORMNET.DataObject)(dataobject)));
         }
     }
 }

@@ -37,9 +37,11 @@ namespace IIS.Task6
         
         private double fПлощадь;
         
-        private double fПлощадьОТ;
+        private double fПлощадьВсехОТ;
         
         private IIS.Task6.СетевойРайон fСетевойРайон;
+        
+        private IIS.Task6.DetailArrayOfОбъектТеплопотребления fОбъектТеплопотребления;
         
         // *** Start programmer edit section *** (Здание CustomMembers)
 
@@ -142,33 +144,33 @@ namespace IIS.Task6
         }
         
         /// <summary>
-        /// ПлощадьОТ.
+        /// ПлощадьВсехОТ.
         /// </summary>
-        // *** Start programmer edit section *** (Здание.ПлощадьОТ CustomAttributes)
+        // *** Start programmer edit section *** (Здание.ПлощадьВсехОТ CustomAttributes)
 
-        // *** End programmer edit section *** (Здание.ПлощадьОТ CustomAttributes)
-        public virtual double ПлощадьОТ
+        // *** End programmer edit section *** (Здание.ПлощадьВсехОТ CustomAttributes)
+        public virtual double ПлощадьВсехОТ
         {
             get
             {
-                // *** Start programmer edit section *** (Здание.ПлощадьОТ Get start)
+                // *** Start programmer edit section *** (Здание.ПлощадьВсехОТ Get start)
 
-                // *** End programmer edit section *** (Здание.ПлощадьОТ Get start)
-                double result = this.fПлощадьОТ;
-                // *** Start programmer edit section *** (Здание.ПлощадьОТ Get end)
+                // *** End programmer edit section *** (Здание.ПлощадьВсехОТ Get start)
+                double result = this.fПлощадьВсехОТ;
+                // *** Start programmer edit section *** (Здание.ПлощадьВсехОТ Get end)
 
-                // *** End programmer edit section *** (Здание.ПлощадьОТ Get end)
+                // *** End programmer edit section *** (Здание.ПлощадьВсехОТ Get end)
                 return result;
             }
             set
             {
-                // *** Start programmer edit section *** (Здание.ПлощадьОТ Set start)
+                // *** Start programmer edit section *** (Здание.ПлощадьВсехОТ Set start)
 
-                // *** End programmer edit section *** (Здание.ПлощадьОТ Set start)
-                this.fПлощадьОТ = value;
-                // *** Start programmer edit section *** (Здание.ПлощадьОТ Set end)
+                // *** End programmer edit section *** (Здание.ПлощадьВсехОТ Set start)
+                this.fПлощадьВсехОТ = value;
+                // *** Start programmer edit section *** (Здание.ПлощадьВсехОТ Set end)
 
-                // *** End programmer edit section *** (Здание.ПлощадьОТ Set end)
+                // *** End programmer edit section *** (Здание.ПлощадьВсехОТ Set end)
             }
         }
         
@@ -203,6 +205,41 @@ namespace IIS.Task6
                 // *** Start programmer edit section *** (Здание.СетевойРайон Set end)
 
                 // *** End programmer edit section *** (Здание.СетевойРайон Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Здание.
+        /// </summary>
+        // *** Start programmer edit section *** (Здание.ОбъектТеплопотребления CustomAttributes)
+
+        // *** End programmer edit section *** (Здание.ОбъектТеплопотребления CustomAttributes)
+        public virtual IIS.Task6.DetailArrayOfОбъектТеплопотребления ОбъектТеплопотребления
+        {
+            get
+            {
+                // *** Start programmer edit section *** (Здание.ОбъектТеплопотребления Get start)
+
+                // *** End programmer edit section *** (Здание.ОбъектТеплопотребления Get start)
+                if ((this.fОбъектТеплопотребления == null))
+                {
+                    this.fОбъектТеплопотребления = new IIS.Task6.DetailArrayOfОбъектТеплопотребления(this);
+                }
+                IIS.Task6.DetailArrayOfОбъектТеплопотребления result = this.fОбъектТеплопотребления;
+                // *** Start programmer edit section *** (Здание.ОбъектТеплопотребления Get end)
+
+                // *** End programmer edit section *** (Здание.ОбъектТеплопотребления Get end)
+                return result;
+            }
+            set
+            {
+                // *** Start programmer edit section *** (Здание.ОбъектТеплопотребления Set start)
+
+                // *** End programmer edit section *** (Здание.ОбъектТеплопотребления Set start)
+                this.fОбъектТеплопотребления = value;
+                // *** Start programmer edit section *** (Здание.ОбъектТеплопотребления Set end)
+
+                // *** End programmer edit section *** (Здание.ОбъектТеплопотребления Set end)
             }
         }
     }

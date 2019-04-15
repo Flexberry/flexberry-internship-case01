@@ -71,8 +71,11 @@ namespace IIS.Task6
 
 
             //Перевычисление площадей объектов теплопотребления в здании
-
-
+            UpdatedObject.Здание.ПлощадьВсехОТ = 0;
+            for (int i = 0; i < UpdatedObject.Здание.ОбъектТеплопотребления.Count; i++)
+            {
+                UpdatedObject.Здание.ПлощадьВсехОТ += UpdatedObject.Площадь;
+            }
 
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateОбъектТеплопотребления)
