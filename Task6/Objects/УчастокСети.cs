@@ -173,6 +173,31 @@ namespace IIS.Task6
         }
         
         /// <summary>
+        /// ИнфоОбУчасткеСети.
+        /// </summary>
+        // *** Start programmer edit section *** (УчастокСети.ИнфоОбУчасткеСети CustomAttributes)
+
+        // *** End programmer edit section *** (УчастокСети.ИнфоОбУчасткеСети CustomAttributes)
+        [ICSSoft.STORMNET.NotStored()]
+        [StrLen(255)]
+        public virtual string ИнфоОбУчасткеСети
+        {
+            get
+            {
+                // *** Start programmer edit section *** (УчастокСети.ИнфоОбУчасткеСети Get)
+                string info = "Адрес: " + this.ОбъектТеплопотребления.Здание.Адрес + "; Название ОТ: " + this.ОбъектТеплопотребления.Название + "; Номер: " + this.Номер +"; Тип изоляции: " + this.ТипИзоляции + ";";
+                return info;
+                // *** End programmer edit section *** (УчастокСети.ИнфоОбУчасткеСети Get)
+            }
+            set
+            {
+                // *** Start programmer edit section *** (УчастокСети.ИнфоОбУчасткеСети Set)
+
+                // *** End programmer edit section *** (УчастокСети.ИнфоОбУчасткеСети Set)
+            }
+        }
+        
+        /// <summary>
         /// мастеровая ссылка на шапку IIS.Task6.ОбъектТеплопотребления.
         /// </summary>
         // *** Start programmer edit section *** (УчастокСети.ОбъектТеплопотребления CustomAttributes)

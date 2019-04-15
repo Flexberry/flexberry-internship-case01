@@ -46,13 +46,13 @@ namespace IIS.Task6
         {
             // *** Start programmer edit section *** (OnUpdateОбъектТеплопотребления)
             
+
             //Генерируем цифро-буквенный код для объекта теплопотребления
             string QRcode = CreateCode.FirstCreateCode.GenerateCode(UpdatedObject.Название, UpdatedObject.ДатаУстановки, UpdatedObject.Потребитель.ЛицевойСчёт);
             UpdatedObject.ЦБкод = QRcode;
 
-            //Отправляем площадь данного объекта для пересчёта суммы площадей объектов в здании
-            UpdatedObject.Здание.ПлощадьОТ += UpdatedObject.Площадь;
 
+            //Проверка на дублирование участков сети
             string DuplicateNetworksError = string.Empty;
             bool IsDuplicatedNetwork = false;
             for (int i = 0; i < UpdatedObject.УчастокСети.Count; i++)
@@ -67,6 +67,11 @@ namespace IIS.Task6
                     }
                 }
             }
+            if (IsDuplicatedNetwork) throw new Exception(DuplicateNetworksError);
+
+
+            //Перевычисление площадей объектов теплопотребления в здании
+
 
 
             return new ICSSoft.STORMNET.DataObject[0];
