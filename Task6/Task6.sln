@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6.BusinessServers", "BusinessServers\Task6.BusinessServers.csproj", "{8449BA0D-F053-4B2F-BC19-9F84F0273D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateCode", "CreateCode\CreateCode\CreateCode.csproj", "{8B18C6BA-1FFA-47EC-8689-381198BFEDD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateCode.Tests", "CreateCode\CreateCode.Tests\CreateCode.Tests.csproj", "{73369DF9-5EEE-4E79-8763-846891FC768B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThermoObject", "CreateCode\ThermoObject\ThermoObject.csproj", "{F273FBF3-1C07-472C-9807-38CBDC55D2EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThermoObjectWebApp", "CreateCode\ThermoObjectWebApp\ThermoObjectWebApp.csproj", "{95F5EFDB-EA60-4B20-A32F-D9A5CFB16959}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6.Objects", "Objects\Task6.Objects.csproj", "{2A21DC4F-51EB-41D5-A88B-07ABE6B70578}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+Debug|Any CPU = Debug|Any CPU
+Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8449BA0D-F053-4B2F-BC19-9F84F0273D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8449BA0D-F053-4B2F-BC19-9F84F0273D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8449BA0D-F053-4B2F-BC19-9F84F0273D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8449BA0D-F053-4B2F-BC19-9F84F0273D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B18C6BA-1FFA-47EC-8689-381198BFEDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B18C6BA-1FFA-47EC-8689-381198BFEDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B18C6BA-1FFA-47EC-8689-381198BFEDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B18C6BA-1FFA-47EC-8689-381198BFEDD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73369DF9-5EEE-4E79-8763-846891FC768B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73369DF9-5EEE-4E79-8763-846891FC768B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73369DF9-5EEE-4E79-8763-846891FC768B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73369DF9-5EEE-4E79-8763-846891FC768B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F273FBF3-1C07-472C-9807-38CBDC55D2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F273FBF3-1C07-472C-9807-38CBDC55D2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F273FBF3-1C07-472C-9807-38CBDC55D2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F273FBF3-1C07-472C-9807-38CBDC55D2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F5EFDB-EA60-4B20-A32F-D9A5CFB16959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F5EFDB-EA60-4B20-A32F-D9A5CFB16959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F5EFDB-EA60-4B20-A32F-D9A5CFB16959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F5EFDB-EA60-4B20-A32F-D9A5CFB16959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A21DC4F-51EB-41D5-A88B-07ABE6B70578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A21DC4F-51EB-41D5-A88B-07ABE6B70578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A21DC4F-51EB-41D5-A88B-07ABE6B70578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A21DC4F-51EB-41D5-A88B-07ABE6B70578}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
