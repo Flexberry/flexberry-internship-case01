@@ -74,7 +74,7 @@ namespace IIS.Task6
             UpdatedObject.Здание.ПлощадьВсехОТ = 0;
             for (int i = 0; i < UpdatedObject.Здание.ОбъектТеплопотребления.Count; i++)
             {
-                UpdatedObject.Здание.ПлощадьВсехОТ += UpdatedObject.Площадь;
+                UpdatedObject.Здание.ПлощадьВсехОТ += UpdatedObject.Здание.ОбъектТеплопотребления[i].Площадь;
             }
 
             return new ICSSoft.STORMNET.DataObject[0];
