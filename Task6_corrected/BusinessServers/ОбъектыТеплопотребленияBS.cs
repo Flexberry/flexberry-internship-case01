@@ -16,6 +16,9 @@ namespace IIS.ThermoObjectTask6
 
     // *** Start programmer edit section *** (Using statements)
     using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+
 
     using ICSSoft.STORMNET;
     using ICSSoft.STORMNET.FunctionalLanguage;
@@ -42,6 +45,18 @@ namespace IIS.ThermoObjectTask6
         // *** Start programmer edit section *** (OnUpdateОбъектТеплопотребления CustomAttributes)
 
         // *** End programmer edit section *** (OnUpdateОбъектТеплопотребления CustomAttributes)
+        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateЗдание(IIS.ThermoObjectTask6.Здание UpdatedObject)
+        {
+            var ThermoObjectsInBuilding = UpdatedObject.ОбъектТеплопотребления.Cast<ОбъектТеплопотребления>();
+            UpdatedObject.ПлощадьВсехОТ = 0;
+
+            foreach (ОбъектТеплопотребления z in ThermoObjectsInBuilding)
+            {
+                UpdatedObject.ПлощадьВсехОТ += z.Площадь;
+            }
+            return new ICSSoft.STORMNET.DataObject[0];
+        }
+
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъектТеплопотребления(IIS.ThermoObjectTask6.ОбъектТеплопотребления UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъектТеплопотребления)
@@ -51,21 +66,25 @@ namespace IIS.ThermoObjectTask6
             UpdatedObject.ЦБкод = QRcode;
 
             //Проверка на дублирование участков сети
+
             string DuplicateNetworksError = string.Empty;
             bool IsDuplicatedNetwork = false;
-            for (int i = 0; i < UpdatedObject.УчастокСети.Count; i++)
+
+            var Networks = UpdatedObject.УчастокСети.Cast<УчастокСети>().Where(x=>x.GetStatus() != ObjectStatus.Deleted).OrderBy(x => x.Номер);
+
+            Dictionary<int, ТипыПрокладки> NumbersAndTypesOfIsolation = new Dictionary<int, ТипыПрокладки>();
+            foreach (УчастокСети z in Networks)
             {
-                for (int j = 0; j < UpdatedObject.УчастокСети.Count; j++)
+                if (NumbersAndTypesOfIsolation.ContainsKey(z.Номер))
                 {
-                    if (!UpdatedObject.УчастокСети[i].Equals(UpdatedObject.УчастокСети[j]) && UpdatedObject.УчастокСети[i].Номер == UpdatedObject.УчастокСети[j].Номер &&
-                        UpdatedObject.УчастокСети[i].ТипПрокладки == UpdatedObject.УчастокСети[j].ТипПрокладки)
+                    if (NumbersAndTypesOfIsolation.ContainsValue(z.ТипПрокладки))
                     {
-                        DuplicateNetworksError = "Обнаружены дубли участков сети";
+                        throw new Exception("Обнаружены дубли участков сети");
                         IsDuplicatedNetwork = true;
                     }
                 }
+                else NumbersAndTypesOfIsolation.Add(z.Номер, z.ТипПрокладки);
             }
-            if (IsDuplicatedNetwork) throw new Exception(DuplicateNetworksError);
 
             //Перевычисление площадей объектов теплопотребления в здании
             TODO: //При обращении к массиву объектов теплопотребления конкретного здания выдаёт количество объектов - 0
@@ -76,11 +95,11 @@ namespace IIS.ThermoObjectTask6
             }
 
             //Обновление информации о каждом участке сети в не хранимом поле
-            for (int i = 0; i < UpdatedObject.УчастокСети.Count; i++)
+            var участки = UpdatedObject.УчастокСети.Cast<УчастокСети>().Where(x => x.GetStatus() != ObjectStatus.Deleted);
+            foreach (УчастокСети z in участки)
             {
-                УчастокСети CurrentNetwork = UpdatedObject.УчастокСети[i];
-                CurrentNetwork.ИнфоОбУчасткеСети = "Адрес: " + CurrentNetwork.ОбъектТеплопотребления.Здание.Адрес + "; Название ОТ: " +
-                    CurrentNetwork.ОбъектТеплопотребления.Название + "; Номер: " + CurrentNetwork.Номер + "; Тип изоляции: " + CurrentNetwork.ТипИзоляции + ";";
+                z.ИнфоОбУчасткеСети = "Адрес: " + z.ОбъектТеплопотребления.Здание.Адрес + "; Название ОТ: " +
+                    z.ОбъектТеплопотребления.Название + "; Номер: " + z.Номер + "; Тип изоляции: " + z.ТипИзоляции + ";";
             }
 
             return new ICSSoft.STORMNET.DataObject[0];
