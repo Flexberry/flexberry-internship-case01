@@ -12,8 +12,8 @@ namespace IIS.ThermoObjectTask6
 {
     using System;
     using System.Xml;
-
-
+    
+    
     // *** Start programmer edit section *** (Using statements)
     using System.Collections;
     using System.Collections.Generic;
@@ -28,46 +28,34 @@ namespace IIS.ThermoObjectTask6
 
 
     /// <summary>
-    /// ЦБкодДублиУСплощадиОТ.
+    /// Ц бкод дубли у сплощади ОТ.
     /// </summary>
-    // *** Start programmer edit section *** (ЦБкодДублиУСплощадиОТ CustomAttributes)
+    // *** Start programmer edit section *** (ОбъектыТеплопотребленияBS CustomAttributes)
 
-    // *** End programmer edit section *** (ЦБкодДублиУСплощадиОТ CustomAttributes)
+    // *** End programmer edit section *** (ОбъектыТеплопотребленияBS CustomAttributes)
     [ICSSoft.STORMNET.AccessType(ICSSoft.STORMNET.AccessType.none)]
     public class ОбъектыТеплопотребленияBS : ICSSoft.STORMNET.Business.BusinessServer
     {
+        
+        // *** Start programmer edit section *** (ОбъектыТеплопотребленияBS CustomMembers)
 
-        // *** Start programmer edit section *** (ЦБкодДублиУСплощадиОТ CustomMembers)
+        // *** End programmer edit section *** (ОбъектыТеплопотребленияBS CustomMembers)
 
-        // *** End programmer edit section *** (ЦБкодДублиУСплощадиОТ CustomMembers)
-
-
+        
         // *** Start programmer edit section *** (OnUpdateОбъектТеплопотребления CustomAttributes)
 
         // *** End programmer edit section *** (OnUpdateОбъектТеплопотребления CustomAttributes)
-        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateЗдание(IIS.ThermoObjectTask6.Здание UpdatedObject)
-        {
-            var ThermoObjectsInBuilding = UpdatedObject.ОбъектТеплопотребления.Cast<ОбъектТеплопотребления>();
-            UpdatedObject.ПлощадьВсехОТ = 0;
-
-            foreach (ОбъектТеплопотребления z in ThermoObjectsInBuilding)
-            {
-                UpdatedObject.ПлощадьВсехОТ += z.Площадь;
-            }
-            return new ICSSoft.STORMNET.DataObject[0];
-        }
-
         public virtual ICSSoft.STORMNET.DataObject[] OnUpdateОбъектТеплопотребления(IIS.ThermoObjectTask6.ОбъектТеплопотребления UpdatedObject)
         {
             // *** Start programmer edit section *** (OnUpdateОбъектТеплопотребления)
-
             //Генерируем цифро-буквенный код для объекта теплопотребления
-            string QRcode = CreateCode.FirstCreateCode.GenerateCode(UpdatedObject.Название, UpdatedObject.ДатаУстановки, UpdatedObject.Потребитель.ЛицевойСчёт);
-            UpdatedObject.ЦБкод = QRcode;
+            if (UpdatedObject.GetStatus() != ObjectStatus.Deleted)
+            {
+                string QRcode = CreateCode.FirstCreateCode.GenerateCode(UpdatedObject.Название, UpdatedObject.ДатаУстановки, UpdatedObject.Потребитель.ЛицевойСчёт);
+                UpdatedObject.ЦБкод = QRcode;
+            }
 
             //Проверка на дублирование участков сети
-
-            string DuplicateNetworksError = string.Empty;
             bool IsDuplicatedNetwork = false;
 
             var Networks = UpdatedObject.УчастокСети.Cast<УчастокСети>().Where(x=>x.GetStatus() != ObjectStatus.Deleted).OrderBy(x => x.Номер);
@@ -86,24 +74,30 @@ namespace IIS.ThermoObjectTask6
                 else NumbersAndTypesOfIsolation.Add(z.Номер, z.ТипПрокладки);
             }
 
-            //Перевычисление площадей объектов теплопотребления в здании
-            TODO: //При обращении к массиву объектов теплопотребления конкретного здания выдаёт количество объектов - 0
-            UpdatedObject.Здание.ПлощадьВсехОТ = 0;
-            for (int i = 0; i < UpdatedObject.Здание.ОбъектТеплопотребления.Count; i++)
-            {
-                UpdatedObject.Здание.ПлощадьВсехОТ += UpdatedObject.Здание.ОбъектТеплопотребления[i].Площадь;
-            }
-
-            //Обновление информации о каждом участке сети в не хранимом поле
-            var участки = UpdatedObject.УчастокСети.Cast<УчастокСети>().Where(x => x.GetStatus() != ObjectStatus.Deleted);
-            foreach (УчастокСети z in участки)
-            {
-                z.ИнфоОбУчасткеСети = "Адрес: " + z.ОбъектТеплопотребления.Здание.Адрес + "; Название ОТ: " +
-                    z.ОбъектТеплопотребления.Название + "; Номер: " + z.Номер + "; Тип изоляции: " + z.ТипИзоляции + ";";
-            }
-
+            OnUpdateЗдание(UpdatedObject.Здание);
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateОбъектТеплопотребления)
+        }
+        
+        // *** Start programmer edit section *** (OnUpdateЗдание CustomAttributes)
+
+        // *** End programmer edit section *** (OnUpdateЗдание CustomAttributes)
+        public virtual ICSSoft.STORMNET.DataObject[] OnUpdateЗдание(IIS.ThermoObjectTask6.Здание UpdatedObject)
+        {
+            // *** Start programmer edit section *** (OnUpdateЗдание)
+            if (UpdatedObject.GetStatus() != ObjectStatus.Deleted)
+            {
+                var ThermoObjectsInBuilding = UpdatedObject.ОбъектТеплопотребления.Cast<ОбъектТеплопотребления>();
+                UpdatedObject.ПлощадьВсехОТ = 0;
+
+                foreach (ОбъектТеплопотребления z in ThermoObjectsInBuilding)
+                {
+                    UpdatedObject.ПлощадьВсехОТ += z.Площадь;
+                }
+
+            }
+            return new ICSSoft.STORMNET.DataObject[0];
+            // *** End programmer edit section *** (OnUpdateЗдание)
         }
     }
 }

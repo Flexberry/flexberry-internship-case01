@@ -38,6 +38,14 @@
     <Reference Include="System.Xml">
       <HintPath>System.Xml.dll</HintPath>
     </Reference>
+    <ProjectReference Include="..\CreateCode\CreateCode.csproj">
+      <Project>{8b18c6ba-1ffa-47ec-8689-381198bfedd7}</Project>
+      <Name>CreateCode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Objects\ThermoObjectTask6.Objects.csproj">
+      <Project>{6706d1c4-533b-4ad1-85be-020b420e564b}</Project>
+      <Name>ThermoObjectTask6.Objects</Name>
+    </ProjectReference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-client\log4net.dll</HintPath>
     </Reference>
@@ -119,14 +127,6 @@
     <Reference Include="ICSSoft.STORMNET.UserDataTypes">
       <HintPath>..\packages\NewPlatform.Flexberry.ORM.5.0.0\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\CreateCode\CreateCode.csproj">
-      <Project>{8b18c6ba-1ffa-47ec-8689-381198bfedd7}</Project>
-      <Name>CreateCode</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Objects\ThermoObjectTask6.Objects.csproj">
-      <Project>{6706d1c4-533b-4ad1-85be-020b420e564b}</Project>
-      <Name>ThermoObjectTask6.Objects</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ОбъектыТеплопотребленияBS.cs">

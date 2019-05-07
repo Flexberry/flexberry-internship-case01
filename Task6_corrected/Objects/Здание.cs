@@ -12,6 +12,7 @@ namespace IIS.ThermoObjectTask6
 {
     using System;
     using System.Xml;
+    using ICSSoft.STORMNET.Business;
     using ICSSoft.STORMNET;
     
     
@@ -26,6 +27,8 @@ namespace IIS.ThermoObjectTask6
     // *** Start programmer edit section *** (Здание CustomAttributes)
 
     // *** End programmer edit section *** (Здание CustomAttributes)
+    [BusinessServer("IIS.ThermoObjectTask6.ОбъектыТеплопотребленияBS, ThermoObjectTask6.BusinessServer" +
+        "s", ICSSoft.STORMNET.Business.DataServiceObjectEvents.OnAllEvents)]
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
     [View("ЗданиеE", new string[] {
