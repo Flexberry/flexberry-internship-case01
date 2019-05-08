@@ -84,7 +84,7 @@ namespace IIS.ThermoObjectTask6
             // *** Start programmer edit section *** (OnUpdateЗдание)
             if (UpdatedObject.GetStatus() != ObjectStatus.Deleted)
             {
-                var ThermoObjectsInBuilding = UpdatedObject.ОбъектТеплопотребления.Cast<ОбъектТеплопотребления>();
+                var ThermoObjectsInBuilding = UpdatedObject.ОбъектТеплопотребления.Cast<ОбъектТеплопотребления>().Where(x => x.GetStatus() != ObjectStatus.Deleted);
                 UpdatedObject.ПлощадьВсехОТ = 0;
 
                 foreach (ОбъектТеплопотребления z in ThermoObjectsInBuilding)
