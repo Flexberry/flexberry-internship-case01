@@ -57,10 +57,9 @@ namespace IIS.ThermoObjectTask6
 
             //Проверка на дублирование участков сети
             bool IsDuplicatedNetwork = false;
-
             var Networks = UpdatedObject.УчастокСети.Cast<УчастокСети>().Where(x=>x.GetStatus() != ObjectStatus.Deleted).OrderBy(x => x.Номер);
-
             Dictionary<int, ТипыПрокладки> NumbersAndTypesOfIsolation = new Dictionary<int, ТипыПрокладки>();
+
             foreach (УчастокСети z in Networks)
             {
                 if (NumbersAndTypesOfIsolation.ContainsKey(z.Номер))
@@ -73,8 +72,6 @@ namespace IIS.ThermoObjectTask6
                 }
                 else NumbersAndTypesOfIsolation.Add(z.Номер, z.ТипПрокладки);
             }
-
-            OnUpdateЗдание(UpdatedObject.Здание);
             return new ICSSoft.STORMNET.DataObject[0];
             // *** End programmer edit section *** (OnUpdateОбъектТеплопотребления)
         }

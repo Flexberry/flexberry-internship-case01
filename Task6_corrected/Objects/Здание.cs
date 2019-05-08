@@ -38,9 +38,11 @@ namespace IIS.ThermoObjectTask6
             "ПлощадьВсехОТ as \'Площадь всех ОТ\'",
             "СетевойРайон as \'Сетевой район\'",
             "СетевойРайон.Название as \'Название\'"}, Hidden=new string[] {
-            "ПлощадьВсехОТ"})]
-    [AssociatedDetailViewAttribute("ЗданиеE", "ОбъектТеплопотребления", "ОбъектТеплопотребленияE", true, "", "Объект теплопотребления", false, new string[] {
+            "ПлощадьВсехОТ",
+            "СетевойРайон.Название"})]
+    [AssociatedDetailViewAttribute("ЗданиеE", "ОбъектТеплопотребления", "ОбъектТеплопотребленияE", true, "", "Объект теплопотребления", true, new string[] {
             ""})]
+    [MasterViewDefineAttribute("ЗданиеE", "СетевойРайон", ICSSoft.STORMNET.LookupTypeEnum.Standard, "", "Название")]
     [View("ЗданиеL", new string[] {
             "Адрес as \'Адрес\'",
             "ТипПостройки as \'Тип постройки\'",

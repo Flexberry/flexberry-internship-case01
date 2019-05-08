@@ -49,13 +49,11 @@
                             EnableClientScript="true" ValidationGroup="savedoc" />
 
 </div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlСетевойРайон_НазваниеLabel" runat="server" Text="Название" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlСетевойРайон_Название" runat="server" ReadOnly="true">
-</asp:TextBox>
+<asp:ScriptManager ID="ScriptManager1" runat="server" >
+</asp:ScriptManager>
 
-
+<div style="clear: left">
+	<ac:AjaxGroupEdit CssClass="$PERCENTMW$descTxt" ID="ctrlОбъектТеплопотребления" runat="server" ReadOnly="false" />
 </div>
 
 </div>

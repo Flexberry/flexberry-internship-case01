@@ -52,14 +52,6 @@
 
 </div>
 <div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlЗдание_АдресLabel" runat="server" Text="Адрес" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlЗдание_Адрес" runat="server" ReadOnly="true">
-</asp:TextBox>
-
-
-</div>
-<div class="clearfix">
   <asp:Label CssClass="descLbl" ID="ctrlПлощадьLabel" runat="server" Text="Площадь" EnableViewState="False">
 </asp:Label>
 <ac:DecimalTextBox runat="server" CssClass="descTxt" ID="ctrlПлощадь">
@@ -77,14 +69,6 @@
 <asp:RequiredFieldValidator ID="ctrlПотребительRequiredFieldValidator" runat="server" ControlToValidate="ctrlПотребитель"
                             ErrorMessage="Не указано: Потребитель" Text="*" 
                             EnableClientScript="true" ValidationGroup="savedoc" />
-
-</div>
-<div class="clearfix">
-  <asp:Label CssClass="descLbl" ID="ctrlПотребитель_НазваниеКомпанииLabel" runat="server" Text="Название компании" EnableViewState="False">
-</asp:Label>
-<asp:TextBox CssClass="descTxt" ID="ctrlПотребитель_НазваниеКомпании" runat="server" ReadOnly="true">
-</asp:TextBox>
-
 
 </div>
 <asp:ScriptManager ID="ScriptManager1" runat="server" >
